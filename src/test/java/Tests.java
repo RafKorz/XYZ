@@ -19,7 +19,7 @@ public class Tests
     @Before
     public void setUp()
     {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Rafal\\Desktop\\ChromeDriver\\ChromeDriver89\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Rafal\\Desktop\\ChromeDriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.navigate().to("http://www.wikipedia.pl");
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); // 1 typ waita
@@ -48,6 +48,10 @@ public class Tests
         }
 
         driver.findElement(By.xpath("//*[@id=\"toc\"]/ul/li[3]/a/span[2]"));
+
+        driver.navigate().back();
+        driver.navigate().forward();
+        driver.navigate().refresh();
     }
 
     public static boolean verifyElementPresent(WebDriver driver, By by)
